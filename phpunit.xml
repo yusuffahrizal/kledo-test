@@ -8,8 +8,14 @@
         <!-- <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite> -->
-        <testsuite name="Feature">
+        <!-- <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite> -->
+        <testsuite name="API">
+            <file>tests/Feature/AuthApiTest.php</file>
+            <file>tests/Feature/ApproverApiTest.php</file>
+            <file>tests/Feature/ApprovalStageApiTest.php</file>
+            <file>tests/Feature/ExpenseApiTest.php</file>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">

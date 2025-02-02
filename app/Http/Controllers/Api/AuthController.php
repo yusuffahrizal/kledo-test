@@ -34,7 +34,7 @@ class AuthController extends BaseController
      *   ),
      *   @OA\Response(
      *       response=200,
-     *       description="Successful operation",
+     *       description="OK",
      *       @OA\JsonContent(
      *           type="object",
      *           @OA\Property(property="success", type="boolean", example=true),
@@ -69,6 +69,7 @@ class AuthController extends BaseController
      *   path="/api/logout",
      *   operationId="authLogout",
      *   summary="Logout user",
+     *   security={{"bearerAuth": {}}},
      *   @OA\Response(
      *       response=200,
      *       description="Successful operation",

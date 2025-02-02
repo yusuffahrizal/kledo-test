@@ -53,5 +53,12 @@ use App\Http\Controllers\Controller;
  *     )
  *   )
  * )
+ * 
+ * @OA\SecurityScheme(
+ *   type="http",
+ *   scheme="bearer",
+ *   bearerFormat="JWT",
+ *   securityScheme="bearerAuth"
+ * )
  */
 class BaseController extends Controller {}

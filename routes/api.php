@@ -22,10 +22,12 @@ Route::middleware('auth:api')->group(function () {
         ->only(['store', 'update', 'destroy'])
         ->middleware("can:" . config('permission.attributes.permission.manage_user'));
 
-    Route::name('approval_stage.')->prefix('approval-stage')->group(function () {
-        Route::post('/', 'ApprovalStageController@store')->name('store');
-        Route::match(['put', 'patch'], '/{stage}', 'ApprovalStageController@update')->name('update');
-    })->middleware("can:" . config('permission.attributes.permission.manage_user'));
+    Route::name('approval_stage.')->prefix('approval-stage')
+        ->middleware("can:" . config('permission.attributes.permission.manage_user'))
+        ->group(function () {
+            Route::post('/', 'ApprovalStageController@store')->name('store');
+            Route::match(['put', 'patch'], '/{stage}', 'ApprovalStageController@update')->name('update');
+        });
 
     Route::name('expense.')->prefix('expense')->group(function () {
         Route::post('/', 'ExpenseController@create')

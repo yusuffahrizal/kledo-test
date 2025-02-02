@@ -77,8 +77,11 @@ class ApprovalStageRepository implements ApprovalStageRepositoryInterface
 
         $exists_stage = $this->model->where('user_id', $data['user_id'])->where('id', '!=', $stage)->first();
         if ($exists_stage) {
-            $find_stage->update(['stage' => $exists_stage->stage]);
-            $exists_stage->update(['stage' => $stage]);
+            $s_exists = $exists_stage->stage;
+            $s_find = $find_stage->stage;
+
+            $exists_stage->update(['stage' => $s_find]);
+            $find_stage->update(['stage' => $s_exists]);
         } else {
             $find_stage->update($data);
         }
